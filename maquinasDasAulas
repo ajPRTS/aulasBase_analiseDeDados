@@ -1,0 +1,609 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOn8OComut87P2xJWuM7Wix",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/ajPRTS/aulasBase_analiseDeDados/blob/main/maquinasDasAulas\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "!git --version"
+      ],
+      "metadata": {
+        "id": "w76S_GAENkEG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config --global user.name \"ajpPRTS\""
+      ],
+      "metadata": {
+        "id": "p7FKXsgzQr6b"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config --global user.email \"andrigo.prates@sou.unijui.edu.br\"\n"
+      ],
+      "metadata": {
+        "id": "f6vl_y_KQ2Uc"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config --global init.defaultBranch main\n"
+      ],
+      "metadata": {
+        "id": "fQC1x6-8RCdT"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config --global --list"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "CqmqJ2CcRLbf",
+        "outputId": "62dd006a-04e0-4f60-aed8-cc79675c1266"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "user.name=ajpPRTS\n",
+            "user.email=andrigo.prates@sou.unijui.edu.br\n",
+            "init.defaultbranch=main\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git clone \"https://github.com/ajPRTS/aulasBase_analiseDeDados.git\""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DrkKTUIGS0Qa",
+        "outputId": "939cde74-cdbd-43f1-cfc2-f8be355e678e"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cloning into 'aulasBase_analiseDeDados'...\n",
+            "remote: Enumerating objects: 4, done.\u001b[K\n",
+            "remote: Counting objects: 100% (4/4), done.\u001b[K\n",
+            "remote: Compressing objects: 100% (4/4), done.\u001b[K\n",
+            "remote: Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)\u001b[K\n",
+            "Receiving objects: 100% (4/4), done.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "%cd pcd-aula03"
+      ],
+      "metadata": {
+        "id": "oQ5cAhhCUOeJ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!ls"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "X2q81UbgUeNf",
+        "outputId": "6e2ed695-4146-4a33-eb71-1bf49bc90371"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "aulasBase_analiseDeDados  sample_data\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0MIv4W5-UibH",
+        "outputId": "77b4812e-8f4f-4d4e-829f-f31e0b75fdc4"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "fatal: not a git repository (or any of the parent directories): .git\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd aulasBase_analiseDeDados/"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yKrHY61CUpCu",
+        "outputId": "ecb3cf6e-7c6e-44e4-95fc-33933520daee"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/aulasBase_analiseDeDados\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!ls"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "L2R2KghfUu7N",
+        "outputId": "c5c0858c-763d-4cbe-ce20-e74c30b7edd1"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "LICENSE  README.md\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tQrTYh70UxUZ",
+        "outputId": "63dad2ce-d310-48e2-b5c9-05505af3ad77"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git remote -v"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EVBWBDNwU1k0",
+        "outputId": "d22d1f15-cf67-4269-f786-a1386d463ea2"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "origin\thttps://github.com/ajPRTS/aulasBase_analiseDeDados.git (fetch)\n",
+            "origin\thttps://github.com/ajPRTS/aulasBase_analiseDeDados.git (push)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%%writefile README.md\n",
+        "# PCD - Aula 03\n",
+        "Arquivos da Aula 03: Colab, GitHub e Git.\n",
+        "## Autor\n",
+        "Andrigo"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2mERyzSrVpqj",
+        "outputId": "831d512a-4c89-40d6-c81e-ff460f177d6c"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Overwriting README.md\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!cat README.md"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_2VHWnAAWz30",
+        "outputId": "1c422f86-1b6c-45d9-8dba-86455249f1ed"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "# PCD - Aula 03\n",
+            "Arquivos da Aula 03: Colab, GitHub e Git.\n",
+            "## Autor\n",
+            "Andrigo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UStMH6OKXR8Y",
+        "outputId": "440f5a79-00e3-4538-df18-3def6ccceb1f"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "Changes not staged for commit:\n",
+            "  (use \"git add <file>...\" to update what will be committed)\n",
+            "  (use \"git restore <file>...\" to discard changes in working directory)\n",
+            "\t\u001b[31mmodified:   README.md\u001b[m\n",
+            "\n",
+            "no changes added to commit (use \"git add\" and/or \"git commit -a\")\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fgVBNDFUXWk-",
+        "outputId": "ebf829b4-dafe-4856-dd65-f9a4f837e4c5"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "Changes not staged for commit:\n",
+            "  (use \"git add <file>...\" to update what will be committed)\n",
+            "  (use \"git restore <file>...\" to discard changes in working directory)\n",
+            "\t\u001b[31mmodified:   README.md\u001b[m\n",
+            "\n",
+            "no changes added to commit (use \"git add\" and/or \"git commit -a\")\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git add ."
+      ],
+      "metadata": {
+        "id": "o16C7RMcXaYr"
+      },
+      "execution_count": 23,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git commit -m \"Atualizando o README\""
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "x1zXHzCIXjIT",
+        "outputId": "f910c823-2049-4900-f8fa-9c0037fd5fd7"
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[main b53b0d0] Atualizando o README\n",
+            " 1 file changed, 4 insertions(+), 2 deletions(-)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BV0kuF8_XrZG",
+        "outputId": "71da0dfd-8a1e-4492-caa6-b883ba8dbdf2"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is ahead of 'origin/main' by 1 commit.\n",
+            "  (use \"git push\" to publish your local commits)\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git push origin main"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ey_mxHx_YDwJ",
+        "outputId": "ce6a711c-34f4-441c-f8f7-e9cc6403b847"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "fatal: could not read Username for 'https://github.com': No such device or address\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!apt-get -qq update"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "X4mRj4LnYH9m",
+        "outputId": "86b66379-e675-444f-df66-62d13d576fdb"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "W: Skipping acquire of configured file 'main/source/Sources' as repository 'https://r2u.stat.illinois.edu/ubuntu jammy InRelease' does not seem to provide it (sources.list entry misspelt?)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!apt-get -qq install gh"
+      ],
+      "metadata": {
+        "id": "AIYa5J6mYNO0"
+      },
+      "execution_count": 29,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!GH_PROMPT_DISABLED=1 gh auth login --hostname github.com --git-protocol https --web"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "sWzUKylyYg8-",
+        "outputId": "19e2dc89-5a86-4f8b-f45f-c4c01e65072a"
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\n",
+            "\u001b[0;33m!\u001b[0m First copy your one-time code: \u001b[0;1;39m709D-F9B3\u001b[0m\n",
+            "\u001b[0;1;39mOpen this URL\u001b[0m to continue in your web browser: https://github.com/login/device\n",
+            "\u001b[0;32m✓\u001b[0m Authentication complete.\n",
+            "- gh config set -h github.com git_protocol https\n",
+            "\u001b[0;32m✓\u001b[0m Configured git protocol\n",
+            "\u001b[0;33m!\u001b[0m Authentication credentials saved in plain text\n",
+            "\u001b[0;32m✓\u001b[0m Logged in as \u001b[0;1;39majPRTS\u001b[0m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!gh auth setup-git"
+      ],
+      "metadata": {
+        "id": "uyuez1KjZnRC"
+      },
+      "execution_count": 35,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!gh auth status\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bvKXeMLBbAq3",
+        "outputId": "8f04eb72-9ffc-47cf-e10c-17cfdd3cabfd"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[0;1;39mgithub.com\u001b[0m\n",
+            "  \u001b[0;32m✓\u001b[0m Logged in to github.com account \u001b[0;1;39majPRTS\u001b[0m (/root/.config/gh/hosts.yml)\n",
+            "  - Active account: \u001b[0;1;39mtrue\u001b[0m\n",
+            "  - Git operations protocol: \u001b[0;1;39mhttps\u001b[0m\n",
+            "  - Token: \u001b[0;1;39mgho_************************************\u001b[0m\n",
+            "  - Token scopes: \u001b[0;1;39m'gist', 'read:org', 'repo'\u001b[0m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git push origin main"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "7KZira5zbB0V",
+        "outputId": "a491b2ad-71a4-49d5-b89d-737401b9270e"
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enumerating objects: 5, done.\n",
+            "Counting objects:  20% (1/5)\rCounting objects:  40% (2/5)\rCounting objects:  60% (3/5)\rCounting objects:  80% (4/5)\rCounting objects: 100% (5/5)\rCounting objects: 100% (5/5), done.\n",
+            "Delta compression using up to 2 threads\n",
+            "Compressing objects:  33% (1/3)\rCompressing objects:  66% (2/3)\rCompressing objects: 100% (3/3)\rCompressing objects: 100% (3/3), done.\n",
+            "Writing objects:  33% (1/3)\rWriting objects:  66% (2/3)\rWriting objects: 100% (3/3)\rWriting objects: 100% (3/3), 362 bytes | 362.00 KiB/s, done.\n",
+            "Total 3 (delta 0), reused 0 (delta 0), pack-reused 0\n",
+            "To https://github.com/ajPRTS/aulasBase_analiseDeDados.git\n",
+            "   1389e9a..b53b0d0  main -> main\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
